@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://c6oxqqsro6xjd"]
+
+[ext_resource type="Script" path="res://Scripts/character_base.gd" id="1_iahpp"]
+[ext_resource type="Animation" uid="uid://c4va5o5lbpws3" path="res://Characters/Data/35p.tres" id="2_7mbjk"]
+[ext_resource type="Texture2D" uid="uid://c0oldi86gflv3" path="res://Sprites/35P-attack.png" id="2_v0ssp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7f1cq"]
+size = Vector2(132, 146)
+
+[node name="CharacterBase" type="Area2D"]
+script = ExtResource("1_iahpp")
+data = ExtResource("2_7mbjk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_7f1cq")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_v0ssp")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

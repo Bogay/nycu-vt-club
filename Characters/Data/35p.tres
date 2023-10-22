@@ -1,0 +1,15 @@
+[gd_resource type="Animation" script_class="CharacterData" load_steps=2 format=3 uid="uid://c4va5o5lbpws3"]
+
+[ext_resource type="Script" path="res://Scripts/character_data.gd" id="1_1l5er"]
+
+[resource]
+script = ExtResource("1_1l5er")
+id = 0
+name = "35P"
+level = 0
+max_hp = 0
+attack = 0
+defense = 0
+speed = 0
+exp = 0
+skill_ids = Array[int]([])

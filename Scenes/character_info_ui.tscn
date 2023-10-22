@@ -1,0 +1,51 @@
+[gd_scene load_steps=4 format=3 uid="uid://c1vdcn5t1ti84"]
+
+[ext_resource type="Script" path="res://Scripts/character_info_ui.gd" id="1_7vq3e"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_abq17"]
+bg_color = Color(0.207843, 0, 0.0117647, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gcsfv"]
+bg_color = Color(0.92549, 0.00784314, 0.160784, 1)
+
+[node name="CharacterInfoUI" type="ColorRect"]
+offset_right = 474.0
+offset_bottom = 200.0
+script = ExtResource("1_7vq3e")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 8
+
+[node name="NameLabel" type="Label" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 48
+text = "Name"
+
+[node name="LevelLabel" type="Label" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 48
+text = "Lv. 0"
+
+[node name="HPBarContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HPBar" type="ProgressBar" parent="VBoxContainer/HPBarContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/background = SubResource("StyleBoxFlat_abq17")
+theme_override_styles/fill = SubResource("StyleBoxFlat_gcsfv")
+value = 50.0

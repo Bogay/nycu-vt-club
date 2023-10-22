@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="CharacterRepository" load_steps=5 format=3 uid="uid://cvi2sv2ojobya"]
+
+[ext_resource type="Script" path="res://Scripts/character_repository.gd" id="1_7jd08"]
+[ext_resource type="Script" path="res://Scripts/character_data.gd" id="1_me7nw"]
+
+[sub_resource type="Resource" id="Resource_ekner"]
+script = ExtResource("1_me7nw")
+id = 1
+name = "35P"
+level = 1
+max_hp = 100
+attack = 30
+defense = 20
+speed = 15
+exp = 0
+skill_ids = Array[int]([0])
+
+[sub_resource type="Resource" id="Resource_314o8"]
+script = ExtResource("1_me7nw")
+id = 2
+name = "45P"
+level = 1
+max_hp = 100
+attack = 30
+defense = 20
+speed = 15
+exp = 0
+skill_ids = Array[int]([])
+
+[resource]
+script = ExtResource("1_7jd08")
+characters = Array[ExtResource("1_me7nw")]([SubResource("Resource_ekner"), SubResource("Resource_314o8")])
