@@ -42,6 +42,15 @@ func _process(delta):
 	pass
 
 func setup_character_data():
+
+	General.init_characters(load_characters())
+	# TODO: load enemy data
+	General.init_enemies(load_characters())
+
+	set_current_character(General.party[0])
+	set_current_enemy(General.enemy_party[0])
+
+func load_characters():
 	var characters: Array[CharacterBase] = []
 
 	# TODO: read user saved data instead of game repository
@@ -53,12 +62,8 @@ func setup_character_data():
 			new_chara.data = chara_data
 			return new_chara
 	))
-
-	General.init_characters(characters)
-	# TODO: load enemy data
-	General.init_enemies(characters.duplicate(true))
-	set_current_character(General.party[0])
-	set_current_enemy(General.enemy_party[0])
+	
+	return characters	
 
 func set_current_enemy(enemy: CharacterBase):
 	bind_info_ui(enemy_info_ui, enemy)

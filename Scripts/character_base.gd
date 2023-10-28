@@ -9,7 +9,8 @@ var id: int
 var character_name: String
 var level: int
 var max_hp: Stats
-var hp: int
+var hp: int:
+	set = _set_hp
 var attack: Stats
 var defense: Stats
 var speed: Stats
@@ -20,6 +21,7 @@ var is_alive: bool
 var is_choosen: bool
 
 signal target_choosen
+signal hp_changed(old_value: int, new_value: int)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -51,11 +53,18 @@ func _set_character_data(value: CharacterData):
 					return skill.duplicate()
 			return null
 	))
+	for skill in tmp_skills:
+		skill.set_owner(self)
 	skiils = tmp_skills
 
 	is_owned = false
 	is_alive = true
 	is_choosen = false
+
+func _set_hp(new_hp: int):
+	var old_hp = hp
+	hp = new_hp
+	hp_changed.emit(old_hp, hp)
 
 func _on_choosen():
 	print('hello')
